@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { robots } from './robots';
 import CardLists from './CardLists';
 import SearchBox from './SearchBox';
+import './App.css'
 
 class App extends Component {
 
@@ -19,12 +20,12 @@ class App extends Component {
   }
 
   render(){
-    const filterrobot = this.state.robots.filter(robots => {
-      return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    const filterrobot = this.state.robots.filter(robot => {
+      return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
     });
     return (
       <div className='tc'>
-        <h1>RoboFriends</h1>
+        <h1 className='f1'>RoboFriends</h1>
         <SearchBox searchfield={this.state.searchfield} searchChange={this.onSearchChange} />
         <CardLists robots={filterrobot}/>
       </div>
