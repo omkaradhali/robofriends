@@ -11,7 +11,12 @@ function App() {
   const[searchField, setSearchField] = useState('')
 
   useEffect(() =>{
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/users',{
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin':'*'
+      }
+    })
     .then(response => response.json())
     .then(users => setRobots(users))
   }, [])
